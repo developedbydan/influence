@@ -1,16 +1,44 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { List, X } from "@phosphor-icons/react";
+
+const Links = () => {
+  return (
+    <>
+      <Link to={"/home"}>Home</Link>
+      <Link to={"/search"}>Search</Link>
+    </>
+  );
+};
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <header className="bg-red-500">
-      <nav className="flex items-center justify-between py-4">
-        <div className="rounded-full bg-yellow-500 py-2 px-1">Logo</div>
-        <div className="flex justify-end pr-3 gap-10">
-          <Link to="/">Home</Link>
-          <Link to="/search">Search</Link>
-          <Link to="/account">Account</Link>
+    <header>
+      <nav className="flex justify-between items-center px-4 py-4 bg-background text-white">
+        <button type="button" className="md:hidden" onClick={toggleNavbar}>
+          {isOpen ? <X size={28} /> : <List size={28} />}
+        </button>
+        <div className="text-2xl font-bold">Influence.</div>
+        <div className=" flex justify-end items-center gap-10 ">
+          <div className="hidden md:flex gap-10">
+            <Links />
+          </div>
+          <button className="bg-yellow-500 rounded-full px-3 py-1">
+            <Link>A</Link>
+          </button>
         </div>
       </nav>
+      {isOpen && (
+        <div className="md:hidden  bg-primary  flex flex-col items-left gap-5 py-5 px-5 font-semibold text-lg">
+          <Links />
+        </div>
+      )}
     </header>
   );
 };
