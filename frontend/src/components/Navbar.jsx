@@ -5,7 +5,7 @@ import { List, X } from "@phosphor-icons/react";
 const Links = () => {
   return (
     <>
-      <Link to={"/home"}>Home</Link>
+      <Link to={"/"}>Home</Link>
       <Link to={"/search"}>Search</Link>
     </>
   );
@@ -20,13 +20,13 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="flex justify-between items-center px-4 py-4 bg-background text-white">
+      <nav className="flex justify-between items-center px-4 lg:px-20 py-4 bg-background text-white">
         <button type="button" className="md:hidden" onClick={toggleNavbar}>
           {isOpen ? <X size={28} /> : <List size={28} />}
         </button>
-        <div className="text-2xl font-bold">Influence.</div>
+        <div className="text-2xl lg:text-3xl font-bold">Influence.</div>
         <div className=" flex justify-end items-center gap-10 ">
-          <div className="hidden md:flex gap-10">
+          <div className="hidden md:flex gap-10 ">
             <Links />
           </div>
           <button className="bg-yellow-500 rounded-full px-3 py-1">
