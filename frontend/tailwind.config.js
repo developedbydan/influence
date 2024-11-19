@@ -7,6 +7,10 @@ export default {
         background: "#171719",
         primary: "#6A71F2",
         secondary: "#E6FF72",
+        secondaryBackground: "#F2F4F0",
+        buttonPrimary: "#D3F26A",
+        buttonSecondary: "#66C555",
+        buttonBlend: "#EBF8E9",
       },
       fontFamily: {
         inter: ['"Inter"', "sans-serif"],

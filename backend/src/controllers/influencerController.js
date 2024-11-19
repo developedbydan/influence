@@ -11,7 +11,6 @@ export const getInfluencers = async (req, res) => {
 
 export const createInfluencer = async (req, res) => {
   try {
-    console.log("Dobio sam zahtev");
     const { name, location, category, followers, price, imageUrl } = req.body;
 
     const newInfluencer = new Influencer({
