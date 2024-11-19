@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import userRoutes from "./routes/userRoutes.js";
+import influencerRoutes from "./routes/influencerRoutes.js";
 
 dotenv.config({ path: `src/.env` });
 
@@ -13,6 +14,7 @@ const mongoDBURI = process.env.MONGO_URI;
 app.use(express.json());
 
 app.use("/", userRoutes);
+app.use("/influencers", influencerRoutes);
 
 mongoose
   .connect(mongoDBURI)
