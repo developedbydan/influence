@@ -11,6 +11,7 @@ export default {
         buttonPrimary: "#D3F26A",
         buttonSecondary: "#66C555",
         buttonBlend: "#EBF8E9",
+        search: "#202022",
       },
       fontFamily: {
         inter: ['"Inter"', "sans-serif"],
