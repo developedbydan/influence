@@ -24,13 +24,15 @@ const Navbar = () => {
         <button type="button" className="md:hidden" onClick={toggleNavbar}>
           {isOpen ? <X size={28} /> : <List size={28} />}
         </button>
-        <div className="text-2xl lg:text-3xl font-bold">Influence.</div>
+        <Link className="text-2xl lg:text-3xl font-bold" to={"/"}>
+          Influence.
+        </Link>
         <div className=" flex justify-end items-center gap-10 ">
           <div className="hidden md:flex gap-10 ">
             <Links />
           </div>
           <button className="bg-yellow-500 rounded-full px-3 py-1">
-            <Link>A</Link>
+            <Link to={"/account"}>A</Link>
           </button>
         </div>
       </nav>

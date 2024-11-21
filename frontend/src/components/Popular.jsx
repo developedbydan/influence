@@ -106,7 +106,7 @@ const Popular = () => {
                 type="button"
                 className="text-sm font-semibold bg-buttonPrimary rounded-xl py-4 flex items-center justify-center gap-2"
               >
-                Send message
+                Book a meeting
                 <PaperPlaneRight size={16} weight="fill" />
               </button>
             </div>
