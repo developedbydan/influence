@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Account from "./pages/Account";
-import Serach from "./pages/Serach";
+import All from "./pages/All";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/search" element={<Serach />} />
+        <Route path="/all" element={<All />} />
       </Routes>
     </>
   );
