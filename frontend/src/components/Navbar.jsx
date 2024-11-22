@@ -6,7 +6,7 @@ const Links = () => {
   return (
     <>
       <Link to={"/"}>Home</Link>
-      <Link to={"/search"}>Search</Link>
+      <Link to={"/all"}>Show All</Link>
     </>
   );
 };

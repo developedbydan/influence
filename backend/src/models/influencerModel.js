@@ -14,7 +14,7 @@ const influencerSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ["Tech", "Fashion", "Fitness", "Food", "Travel, Comedy"], // Limited categories
+    enum: ["Tech", "Fashion", "Fitness", "Food", "Travel", "Comedy"], // Limited categories
   },
   followers: {
     type: Number,
