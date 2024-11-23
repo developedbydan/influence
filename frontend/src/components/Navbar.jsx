@@ -1,15 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { List, X } from "@phosphor-icons/react";
-
-const Links = () => {
-  return (
-    <>
-      <Link to={"/"}>Home</Link>
-      <Link to={"/all"}>Show All</Link>
-    </>
-  );
-};
+import { List, User, X } from "@phosphor-icons/react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,21 +15,32 @@ const Navbar = () => {
         <button type="button" className="md:hidden" onClick={toggleNavbar}>
           {isOpen ? <X size={28} /> : <List size={28} />}
         </button>
-        <Link className="text-2xl lg:text-3xl font-bold" to={"/"}>
+        <Link
+          className="text-2xl lg:text-3xl font-bold  w-full text-center"
+          to={"/"}
+        >
           Influence.
         </Link>
         <div className=" flex justify-end items-center gap-10 ">
           <div className="hidden md:flex gap-10 ">
-            <Links />
+            <Link to={"/"}>Home</Link>
+            <Link to={"/all"}>Show All</Link>
           </div>
-          <button className="bg-yellow-500 rounded-full px-3 py-1">
-            <Link to={"/account"}>A</Link>
+          <button className="bg-primary rounded-full p-1.5">
+            <Link to={"/account"}>
+              <User weight="bold" color="black" />
+            </Link>
           </button>
         </div>
       </nav>
       {isOpen && (
         <div className="md:hidden  bg-primary  flex flex-col items-left gap-5 py-5 px-5 font-semibold text-lg">
-          <Links />
+          <Link to={"/"} onClick={toggleNavbar}>
+            Home
+          </Link>
+          <Link to={"/all"} onClick={toggleNavbar}>
+            Show All
+          </Link>
         </div>
       )}
     </header>
