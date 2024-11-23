@@ -27,7 +27,7 @@ const Navbar = () => {
             <Link to={"/all"}>Show All</Link>
           </div>
           <button className="bg-primary rounded-full p-1.5">
-            <Link to={"/login"}>
+            <Link to={"/signup"}>
               <User weight="bold" color="black" />
             </Link>
           </button>
