@@ -10,3 +10,14 @@ export const getInfluencers = async () => {
     console.log(error.response.data.error);
   }
 };
+
+export const bookInfluencer = async (influencerId) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/influencers/${influencerId}/book`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data.error);
+  }
+};

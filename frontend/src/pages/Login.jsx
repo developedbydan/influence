@@ -1,6 +1,28 @@
 import { Link } from "react-router-dom";
+import { login } from "../api/auth";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    if (username === "" || password === "") {
+      console.log("Enter info");
+    } else {
+      try {
+        await login(username, password);
+        console.log("Logged in!");
+        navigate("/home");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <main className=" bg-background h-screen text-white pt-6 pb-8 px-4 lg:px-20 font-inter overflow-y-scroll no-scrollbar ">
       <section className="h-full">
@@ -16,21 +38,22 @@ const Login = () => {
               <h1 className="text-xl pb-8 text-center font-bold md:text-2xl ">
                 Sign in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form className="space-y-4 md:space-y-6" onSubmit={handleLogin}>
                 <div>
                   <label
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium "
                   >
-                    Your email
+                    Username
                   </label>
                   <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className=" text-gray-900 rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 "
-                    placeholder="name@company.com"
+                    type="text"
+                    name="username"
+                    id="username"
+                    className=" text-white rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 "
+                    placeholder="johndoe"
                     required=""
+                    onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
                 <div className="pb-5">
@@ -45,8 +68,9 @@ const Login = () => {
                     name="password"
                     id="password"
                     placeholder="••••••••"
-                    className=" text-gray-900 rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 "
+                    className=" text-white rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 "
                     required=""
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
                 <button
