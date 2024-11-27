@@ -29,3 +29,24 @@ export const createInfluencer = async (req, res) => {
     console.log(err);
   }
 };
+
+export const bookInfluencer = async (req, res) => {
+  const { influencerId } = req.params;
+  // const { date, details } = req.body;
+
+  try {
+    const newBooking = newBooking({
+      userId: req.session.userId,
+      influencerId,
+      // date,
+      // details,
+    });
+
+    await newBooking.save();
+    res
+      .status(201)
+      .json({ message: "Booking successful!", booking: newBooking });
+  } catch (error) {
+    res.status(500).json({ message: "Booking error.", error: error.message });
+  }
+};
