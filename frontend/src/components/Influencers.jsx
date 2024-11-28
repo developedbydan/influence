@@ -22,7 +22,7 @@ const Influencers = () => {
   return (
     <div className=" bg-background">
       {influencers.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 items-center gap-10 px-5 py-12 overflow-y-scroll  no-scrollbar  snap-y snap-mandatory">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 items-center gap-10 px-5 py-12 overflow-y-scroll  no-scrollbar  snap-y snap-mandatory">
           {influencers.map((influencer) => (
             <div
               key={influencer._id}

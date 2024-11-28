@@ -34,3 +34,31 @@ export const signup = async (email, username, password) => {
     console.log(error);
   }
 };
+
+export const logout = async () => {
+  try {
+    const response = await axios.post(
+      `${BASE_URL}/logout`,
+      {},
+      {
+        withCredentials: true,
+      }
+    );
+    return response;
+  } catch (error) {
+    console.error("Error during sign out:", error.message);
+    throw error;
+  }
+};
+
+export const fetchUserData = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/user`, {
+      withCredentials: true,
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user data:", error.message);
+  }
+};
