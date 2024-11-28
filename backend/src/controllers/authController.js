@@ -104,3 +104,38 @@ export const getUser = async (req, res) => {
     res.status(500).json({ message: "Error retrieving user data.", error });
   }
 };
+
+export const updateUser = async (req, res) => {
+  try {
+    const user = req.user;
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    const { email, username, password } = req.body;
+
+    if (email) user.email = email;
+    if (username) user.username = username;
+
+    if (password) {
+      user.password = await bcrypt.hash(password, 13);
+    }
+
+    await user.save();
+
+    res.status(200).json({
+      message: "Info updated successfully.",
+      success: true,
+      user: {
+        email: user.email,
+        username: user.username,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error while updating info.",
+      error: error.message,
+    });
+  }
+};
