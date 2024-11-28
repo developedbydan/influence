@@ -12,6 +12,7 @@ export default {
         buttonSecondary: "#66C555",
         buttonBlend: "#EBF8E9",
         search: "#202022",
+        grayBackground: "#383838",
       },
       fontFamily: {
         inter: ['"Inter"', "sans-serif"],
