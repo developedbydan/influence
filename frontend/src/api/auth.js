@@ -62,3 +62,19 @@ export const fetchUserData = async () => {
     console.error("Error fetching user data:", error.message);
   }
 };
+
+export const updateUserData = async (email, username, password) => {
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/user`,
+      { email, username, password },
+      {
+        withCredentials: true,
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error("Error updating account:", error);
+  }
+};

@@ -2,7 +2,7 @@ import { CaretRight, SignOut } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { fetchUserData, logout } from "../api/auth";
 import Layout from "../components/Layout";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Account = () => {
   const [user, setUser] = useState(null);
@@ -42,14 +42,32 @@ const Account = () => {
 
             <section className="pt-12">
               <h2 className="text-gray-500 font-bold pb-5">General</h2>
-              <div className="bg-grayBackground p-3 rounded-xl flex items-center justify-between">
-                <div className="flex flex-col gap-1">
-                  <h3>Account settings</h3>
-                  <p className="text-sm text-gray-400">
-                    Update and modify your account
-                  </p>
-                </div>
-                <CaretRight size={24} weight="bold" color="#9ca3af" />
+              <div className="flex flex-col gap-5">
+                <button className="bg-grayBackground w-full p-3 rounded-xl  hover:bg-search  transition duration-200">
+                  <Link
+                    className="flex items-center justify-between"
+                    to={"/account-settings"}
+                  >
+                    <div className="flex flex-col gap-1 items-start">
+                      <h3>Account settings</h3>
+                      <p className="text-sm text-gray-400">
+                        Update and modify your account
+                      </p>
+                    </div>
+                    <CaretRight size={24} weight="bold" color="#9ca3af" />
+                  </Link>
+                </button>
+                <button className="bg-grayBackground w-full p-3 rounded-xl  hover:bg-search  transition duration-200">
+                  <Link className="flex items-center justify-between">
+                    <div className="flex flex-col gap-1 items-start">
+                      <h3>Bookings</h3>
+                      <p className="text-sm text-gray-400">
+                        See all your bookings
+                      </p>
+                    </div>
+                    <CaretRight size={24} weight="bold" color="#9ca3af" />
+                  </Link>
+                </button>
               </div>
             </section>
 

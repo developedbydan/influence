@@ -5,6 +5,7 @@ import All from "./pages/All";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AccountSettings from "./pages/AccountSettings";
 
 const App = () => {
   return (
@@ -26,6 +27,16 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/account-settings"
+          element={
+            <ProtectedRoute>
+              <AccountSettings />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/all"
           element={
