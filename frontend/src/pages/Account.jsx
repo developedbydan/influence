@@ -58,7 +58,10 @@ const Account = () => {
                   </Link>
                 </button>
                 <button className="bg-grayBackground w-full p-3 rounded-xl  hover:bg-search  transition duration-200">
-                  <Link className="flex items-center justify-between">
+                  <Link
+                    className="flex items-center justify-between"
+                    to={"/bookings"}
+                  >
                     <div className="flex flex-col gap-1 items-start">
                       <h3>Bookings</h3>
                       <p className="text-sm text-gray-400">

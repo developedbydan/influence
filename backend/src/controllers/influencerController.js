@@ -55,13 +55,11 @@ export const bookInfluencer = async (req, res) => {
     });
 
     await newBooking.save();
-    res
-      .status(201)
-      .json({
-        success: true,
-        message: "Booking successful!",
-        booking: newBooking,
-      });
+    res.status(201).json({
+      success: true,
+      message: "Booking successful!",
+      booking: newBooking,
+    });
   } catch (error) {
     res.status(500).json({ message: "Booking error.", error: error.message });
   }
@@ -72,9 +70,9 @@ export const getBookings = async (req, res) => {
     const userId = req.user.id;
 
     const bookings = await Booking.find({ userId: userId })
-      .populate("influencerId", "name price")
+      .populate("influencerId", "name category price")
       .exec();
-    console.log(bookings);
+
     res.status(200).json(bookings);
   } catch (error) {
     res.status(500).json({ error: error.message });

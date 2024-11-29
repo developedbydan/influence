@@ -16,17 +16,17 @@ const Navbar = () => {
           {isOpen ? <X size={28} /> : <List size={28} />}
         </button>
         <Link
-          className="text-2xl lg:text-3xl font-bold w-full text-center md:text-left"
+          className="text-2xl lg:text-3xl font-bold w-full md:w-1/2  text-center md:text-left"
           to={"/"}
         >
           Influence.
         </Link>
-        <div className=" flex justify-end items-center gap-10  w-full">
+        <div className=" flex justify-end items-center gap-10  ">
           <div className="hidden md:flex gap-10 ">
             <Link to={"/"}>Home</Link>
             <Link to={"/all"}>Show All</Link>
           </div>
-          <button className="bg-primary rounded-full p-1.5">
+          <button className="bg-primary rounded-full p-1.5 ">
             <Link to={"/account"}>
               <User weight="bold" color="black" />
             </Link>

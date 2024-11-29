@@ -10,11 +10,12 @@ import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
+router.get("/bookings", authMiddleware, getBookings);
+
 router.get("/", authMiddleware, getInfluencers);
 router.get("/:influencerId", authMiddleware, getOneInfluencer);
 
 // router.post("/", createInfluencer);
 router.post("/:influencerId/book", authMiddleware, bookInfluencer);
-router.post("/bookings", authMiddleware, getBookings);
 
 export default router;
