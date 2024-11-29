@@ -1,3 +1,4 @@
+import Booking from "../models/bookingModel.js";
 import Influencer from "../models/influencerModel.js";
 
 export const getInfluencers = async (req, res) => {
@@ -31,15 +32,15 @@ export const createInfluencer = async (req, res) => {
 };
 
 export const bookInfluencer = async (req, res) => {
-  const { influencerId } = req.params;
-  // const { date, details } = req.body;
-
   try {
-    const newBooking = newBooking({
-      userId: req.session.userId,
+    const { influencerId } = req.params;
+    const userId = req.user.id;
+    const { details } = req.body;
+
+    const newBooking = new Booking({
+      userId,
       influencerId,
-      // date,
-      // details,
+      details,
     });
 
     await newBooking.save();
@@ -48,5 +49,19 @@ export const bookInfluencer = async (req, res) => {
       .json({ message: "Booking successful!", booking: newBooking });
   } catch (error) {
     res.status(500).json({ message: "Booking error.", error: error.message });
+  }
+};
+
+export const getBookings = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    const bookings = await Booking.find({ userId: userId })
+      .populate("influencerId", "name price")
+      .exec();
+    console.log(bookings);
+    res.status(200).json(bookings);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };

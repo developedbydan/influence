@@ -11,13 +11,10 @@ const bookingSchema = new mongoose.Schema({
     ref: "Influencer",
     required: true,
   },
-  //   date: {
-  //     type: Date,
-  //     required: true,
-  //   },
-  //   details: {
-  //     type: String,
-  //   },
+  details: {
+    type: String,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -25,4 +22,5 @@ const bookingSchema = new mongoose.Schema({
 });
 
 const Booking = mongoose.model("Booking", bookingSchema);
+
 export default Booking;
