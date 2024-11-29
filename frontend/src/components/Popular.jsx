@@ -7,6 +7,7 @@ import {
   TiktokLogo,
   YoutubeLogo,
 } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 const Popular = () => {
   const [influencers, setInfluencers] = useState([]);
@@ -104,10 +105,15 @@ const Popular = () => {
                 </div>
                 <button
                   type="button"
-                  className="text-sm font-semibold bg-buttonPrimary rounded-xl py-4 flex items-center justify-center gap-2"
+                  className=" bg-buttonPrimary rounded-xl py-4 "
                 >
-                  Book a meeting
-                  <PaperPlaneRight size={16} weight="fill" />
+                  <Link
+                    className="text-sm font-semibold flex items-center justify-center gap-2"
+                    to={`/booking/${influencer._id}`}
+                  >
+                    Book a meeting
+                    <PaperPlaneRight size={16} weight="fill" />
+                  </Link>
                 </button>
               </div>
             ))}

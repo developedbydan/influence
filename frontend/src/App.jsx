@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AccountSettings from "./pages/AccountSettings";
+import Booking from "./pages/Booking";
 
 const App = () => {
   return (
@@ -45,6 +46,16 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/booking/:influencerId"
+          element={
+            <ProtectedRoute>
+              <Booking />
+            </ProtectedRoute>
+          }
+        />
+
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

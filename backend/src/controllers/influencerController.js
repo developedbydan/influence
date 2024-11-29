@@ -10,6 +10,17 @@ export const getInfluencers = async (req, res) => {
   }
 };
 
+export const getOneInfluencer = async (req, res) => {
+  try {
+    const { influencerId } = req.params;
+    const influencer = await Influencer.findById(influencerId);
+
+    res.status(200).json(influencer);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 export const createInfluencer = async (req, res) => {
   try {
     const { name, location, category, followers, price, imageUrl } = req.body;
@@ -46,7 +57,11 @@ export const bookInfluencer = async (req, res) => {
     await newBooking.save();
     res
       .status(201)
-      .json({ message: "Booking successful!", booking: newBooking });
+      .json({
+        success: true,
+        message: "Booking successful!",
+        booking: newBooking,
+      });
   } catch (error) {
     res.status(500).json({ message: "Booking error.", error: error.message });
   }
