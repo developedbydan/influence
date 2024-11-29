@@ -13,9 +13,24 @@ export const getInfluencers = async () => {
   }
 };
 
-export const bookInfluencer = async (influencerId, details) => {
+export const getOneInfluencer = async (influencerId) => {
   try {
     const response = await axios.get(
+      `${BASE_URL}/influencers/${influencerId}`,
+      {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data.error);
+    console.log(influencerId);
+  }
+};
+
+export const bookInfluencer = async (influencerId, details) => {
+  try {
+    const response = await axios.post(
       `${BASE_URL}/influencers/${influencerId}/book`,
       { details },
       {
