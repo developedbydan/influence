@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AccountSettings from "./pages/AccountSettings";
 import Booking from "./pages/Booking";
+import AllBookings from "./pages/AllBookings";
 
 const App = () => {
   return (
@@ -52,6 +53,15 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Booking />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/bookings"
+          element={
+            <ProtectedRoute>
+              <AllBookings />
             </ProtectedRoute>
           }
         />
