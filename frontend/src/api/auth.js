@@ -4,6 +4,8 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const login = async (email, password) => {
   try {
+    console.log(BASE_URL);
+
     const response = await axios.post(
       `${BASE_URL}/login`,
       {
