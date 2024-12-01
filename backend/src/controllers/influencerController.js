@@ -78,3 +78,12 @@ export const getBookings = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const getPopularInfluencers = async (req, res) => {
+  try {
+    const influencers = await Influencer.find({ popular: true });
+    res.status(200).json(influencers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

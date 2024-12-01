@@ -31,6 +31,10 @@ const influencerSchema = new mongoose.Schema({
     required: true,
     match: /^https?:\/\/.+/, // Url validation
   },
+  popular: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
