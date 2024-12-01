@@ -2,6 +2,10 @@ import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import { createToken } from "../utils/createToken.js";
 
+dotenv.config({ path: `src/.env` });
+
+const nodeEnv = process.env.NODE_ENV;
+
 export const signup = async (req, res, next) => {
   try {
     const { email, username, password, createdAt } = req.body;
@@ -25,6 +29,8 @@ export const signup = async (req, res, next) => {
     res.cookie("token", token, {
       withCredentials: true,
       httpOnly: false,
+      secure: nodeEnv === "production",
+      sameSite: "None",
     });
 
     res.status(201).json({
@@ -62,6 +68,8 @@ export const login = async (req, res, next) => {
     res.cookie("token", token, {
       withCredentials: true,
       httpOnly: false,
+      secure: nodeEnv === "production",
+      sameSite: "None",
     });
 
     res
