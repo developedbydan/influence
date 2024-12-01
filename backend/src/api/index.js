@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
-import authRoutes from "./routes/authRoutes.js";
-import influencerRoutes from "./routes/influencerRoutes.js";
+import authRoutes from "../routes/authRoutes.js";
+import influencerRoutes from "../routes/influencerRoutes.js";
 
 dotenv.config({ path: `src/.env` });
 
