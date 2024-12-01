@@ -14,7 +14,7 @@ const port = process.env.PORT;
 const mongoDBURI = process.env.MONGO_URI;
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://influence-sable.vercel.app",
   credentials: true,
 };
 
