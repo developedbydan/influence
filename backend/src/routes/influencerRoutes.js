@@ -1,7 +1,6 @@
 import express from "express";
 import {
   bookInfluencer,
-  // createInfluencer,
   getBookings,
   getInfluencers,
   getOneInfluencer,
@@ -18,7 +17,6 @@ router.get("/popular", authMiddleware, getPopularInfluencers);
 
 router.get("/:influencerId", authMiddleware, getOneInfluencer);
 
-// router.post("/", createInfluencer);
 router.post("/:influencerId/book", authMiddleware, bookInfluencer);
 
 export default router;
