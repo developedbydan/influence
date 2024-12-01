@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getInfluencers } from "../api/influencers";
+import { getPopularInfluencers } from "../api/influencers";
 import {
   InstagramLogo,
   PaperPlaneRight,
@@ -12,13 +12,13 @@ import { Link } from "react-router-dom";
 const Popular = () => {
   const [influencers, setInfluencers] = useState([]);
 
-  const fetchInfluencers = async () => {
-    const response = await getInfluencers();
+  const fetchPopularInfluencers = async () => {
+    const response = await getPopularInfluencers();
     setInfluencers(response);
   };
 
   useEffect(() => {
-    fetchInfluencers();
+    fetchPopularInfluencers();
   }, []);
 
   return (

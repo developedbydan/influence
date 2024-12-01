@@ -13,6 +13,17 @@ export const getInfluencers = async () => {
   }
 };
 
+export const getPopularInfluencers = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/influencers/popular`, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data.error);
+  }
+};
+
 export const getOneInfluencer = async (influencerId) => {
   try {
     const response = await axios.get(
