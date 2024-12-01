@@ -1,5 +1,7 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+
 import { createToken } from "../utils/createToken.js";
 
 dotenv.config({ path: `src/.env` });
