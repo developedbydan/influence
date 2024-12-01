@@ -15,6 +15,7 @@ const mongoDBURI = process.env.MONGO_URI;
 
 const corsOptions = {
   origin: "https://influence-sable.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };
 
