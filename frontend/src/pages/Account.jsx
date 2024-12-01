@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { fetchUserData, logout } from "../api/auth";
 import Layout from "../components/Layout";
 import { Link, useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 const Account = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -21,6 +23,7 @@ const Account = () => {
     const getUserData = async () => {
       const userData = await fetchUserData();
       setUser(userData);
+      setLoading(false);
     };
 
     getUserData();
@@ -29,7 +32,11 @@ const Account = () => {
   return (
     <Layout>
       <div className="bg-background h-screen text-white pt-6 pb-8 px-4 lg:px-20 font-inter overflow-y-scroll no-scrollbar">
-        {user ? (
+        {loading ? (
+          <div className="flex justify-center items-center h-screen animate-pulse">
+            <ClipLoader color="#6A71F2" size={40} />
+          </div>
+        ) : (
           <>
             <section className="flex flex-col items-center pt-12">
               <div className="bg-primary rounded-full w-32 h-32 flex flex-col items-center justify-center">
@@ -85,8 +92,6 @@ const Account = () => {
               </button>
             </section>
           </>
-        ) : (
-          <h2>Loading</h2>
         )}
       </div>
     </Layout>
