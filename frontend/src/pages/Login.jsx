@@ -5,12 +5,14 @@ import { useCookies } from "react-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { login } from "../api/auth";
+import { useAuth } from "../contexts/AuthContext";
 
 const Login = () => {
   const [cookies] = useCookies(["token"]);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { userLogin } = useAuth();
 
   useEffect(() => {
     if (cookies.token) {
@@ -32,9 +34,10 @@ const Login = () => {
     try {
       const response = await login(email, password);
 
-      const { success, message } = response.data;
+      const { success, message, user } = response.data;
       if (success) {
         handleSuccess(message);
+        userLogin(user);
         setTimeout(() => {
           navigate("/");
         }, 2000);
