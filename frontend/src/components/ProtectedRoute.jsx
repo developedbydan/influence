@@ -1,11 +1,16 @@
 import { Navigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+
+const getCookie = (name) => {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+};
 
 const ProtectedRoute = ({ children }) => {
-  const [cookies] = useCookies();
-  console.log("All cookies:", cookies);
+  const token = getCookie("token");
+  console.log("Token from document.cookie:", token);
 
-  if (!cookies.token) {
+  if (!token) {
     return <Navigate to="/login" replace />;
   }
 
