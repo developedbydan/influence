@@ -66,7 +66,7 @@ const AccountSettings = () => {
 
   return (
     <Layout>
-      <div className="bg-background h-screen text-white pt-32 pb-8 px-4 lg:px-20 font-inter  overflow-y-scroll no-scrollbar ">
+      <div className="bg-background h-screen text-white pt-32 pb-8 px-4 lg:px-20 font-inter  overflow-y-scroll no-scrollbar xl:flex xl:flex-col xl:items-center">
         {loading ? (
           <div className="flex justify-center items-center h-screen animate-pulse">
             <ClipLoader color="#6A71F2" size={40} />

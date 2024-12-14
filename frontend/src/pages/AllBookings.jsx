@@ -25,7 +25,7 @@ const AllBookings = () => {
 
   return (
     <Layout>
-      <div className="bg-background h-screen text-white pt-6 pb-8 px-4 lg:px-20 font-inter  overflow-y-scroll no-scrollbar ">
+      <div className="bg-background h-screen text-white pt-6 pb-8 px-4 lg:px-20 font-inter  overflow-y-scroll no-scrollbar xl:flex xl:flex-col xl:items-center">
         {loading ? (
           <div className="flex justify-center items-center h-screen animate-pulse">
             <ClipLoader color="#6A71F2" size={40} />
@@ -36,7 +36,7 @@ const AllBookings = () => {
               My Bookings
             </h2>
             {bookings.length > 0 ? (
-              <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+              <div className="relative overflow-x-auto shadow-md sm:rounded-lg xl:w-9/12">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>

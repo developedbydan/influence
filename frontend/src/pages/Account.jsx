@@ -31,7 +31,7 @@ const Account = () => {
 
   return (
     <Layout>
-      <div className="bg-background h-screen text-white pt-6 pb-8 px-4 lg:px-20 font-inter overflow-y-scroll no-scrollbar">
+      <div className="bg-background h-screen text-white pt-6 pb-8 px-4 lg:px-20 font-inter overflow-y-scroll no-scrollbar xl:flex xl:flex-col xl:items-center">
         {loading ? (
           <div className="flex justify-center items-center h-screen animate-pulse">
             <ClipLoader color="#6A71F2" size={40} />
@@ -47,7 +47,7 @@ const Account = () => {
               <h2 className="font-bold text-xl pt-5">{user.username}</h2>
             </section>
 
-            <section className="pt-12">
+            <section className="pt-12 xl:w-7/12">
               <h2 className="text-gray-500 font-bold pb-5">General</h2>
               <div className="flex flex-col gap-5">
                 <button className="bg-grayBackground w-full p-3 rounded-xl  hover:bg-search  transition duration-200">
@@ -81,10 +81,10 @@ const Account = () => {
               </div>
             </section>
 
-            <section className="flex justify-center pt-40">
+            <section className="flex justify-center pt-40 xl:pt-16 xl:w-7/12 ">
               <button
                 type="button"
-                className="sm:text-xs lg:text-sm font-medium bg-red-800 rounded-xl py-4 px-8 sm:px-3 flex items-center justify-center gap-4"
+                className="sm:text-xs lg:text-sm xl:w-5/12  font-medium bg-red-800 rounded-xl py-4 px-8 sm:px-3 flex items-center justify-center gap-4"
                 onClick={handleSignOut}
               >
                 Sign Out
