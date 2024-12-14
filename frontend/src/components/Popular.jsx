@@ -39,7 +39,7 @@ const Popular = () => {
               ></path>
             </svg>
           </div>
-          <div className="flex items-center gap-8 bg-secondaryBackground px-5 py-6  overflow-x-scroll  no-scrollbar  snap-x snap-mandatory">
+          <div className="flex lg:justify-center items-center gap-8 bg-secondaryBackground px-5 py-6  overflow-x-scroll  no-scrollbar  snap-x snap-mandatory">
             {influencers.map((influencer) => (
               <div
                 key={influencer._id}

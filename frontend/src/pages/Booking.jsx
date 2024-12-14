@@ -61,41 +61,41 @@ const Booking = () => {
 
   return (
     <Layout>
-      <div className="bg-background h-screen text-white pt-6 pb-8 px-4 lg:px-20 font-inter  overflow-y-scroll no-scrollbar ">
+      <div className="bg-background h-screen text-white pt-6 pb-8 px-4 lg:px-20 font-inter  overflow-y-scroll no-scrollbar xl:flex xl:flex-col xl:items-center">
         {loading ? (
           <div className="flex justify-center items-center h-screen animate-pulse">
             <ClipLoader color="#6A71F2" size={40} />
           </div>
         ) : (
           <>
-            <div className="bg-gray-800 flex flex-col items-center pt-10 pb-10 px-4 rounded-2xl">
-              <h2 className="font-bold text-xl">Booking Details</h2>
-              <div className="pt-10 pb-16 flex flex-col items-center \ w-full">
+            <div className="bg-gray-800 flex flex-col items-center pt-10 pb-10 px-4 rounded-2xl lg:w-5/12 2xl:w-4/12 ">
+              <h2 className="font-bold text-xl xl:text-2xl">Booking Details</h2>
+              <div className="pt-10 xl:pt-16 pb-16 flex flex-col items-center w-full">
                 <img
                   src={influencer.imageUrl}
                   alt="Influencer image"
-                  className="w-28 h-28 rounded-full object-cover object-center"
+                  className="w-28 h-28 xl:w-32 xl:h-32 rounded-full object-cover object-center"
                 />
 
-                <h3 className="pt-4 pb-2 font-bold text-lg">
+                <h3 className="pt-4 pb-2 font-bold text-lg xl:text-xl">
                   {influencer.name}
                 </h3>
                 <div className="bg-buttonSecondary py-1 px-3 rounded-full ">
-                  <p className=" text-buttonBlend text-xs font-semibold">
+                  <p className=" text-buttonBlend text-xs xl:text-sm font-semibold">
                     {influencer.category}
                   </p>
                 </div>
               </div>
               <div className=" w-full border-b-2">
-                <div className="w-full flex justify-between text-sm text-gray-400">
+                <div className="w-full flex justify-between text-sm xl:text-base text-gray-400">
                   <p>Ad price:</p>
                   <p>${influencer.price}</p>
                 </div>
-                <div className="w-full flex justify-between text-sm text-gray-400">
+                <div className="w-full flex justify-between text-sm xl:text-base text-gray-400">
                   <p>Booking fee:</p>
                   <p>${bookingFee}</p>
                 </div>
-                <div className="w-full flex justify-between pt-3 font-semibold">
+                <div className="w-full flex justify-between pt-3 font-semibold xl:text-lg">
                   <p>Total:</p>
                   <p>${influencer.price + bookingFee}</p>
                 </div>
@@ -116,7 +116,7 @@ const Booking = () => {
                 ></textarea>
                 <button
                   type="submit"
-                  className="w-full flex gap-2 items-center justify-center text-black bg-white hover:bg-gray-200  focus:outline-none font-semibold rounded-lg text-sm px-5 py-3 text-cente "
+                  className="w-full flex gap-2 items-center justify-center text-black bg-white hover:bg-gray-200  focus:outline-none font-semibold rounded-lg text-sm px-5 py-3 text-center "
                 >
                   Book a meeting
                   <PaperPlaneRight size={16} weight="fill" />
