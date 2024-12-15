@@ -9,12 +9,16 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
   };
 
+  const userRegister = (userData) => {
+    setUser(userData);
+  };
+
   const userLogout = () => {
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, userLogin, userLogout }}>
+    <AuthContext.Provider value={{ user, userLogin, userLogout, userRegister }}>
       {children}
     </AuthContext.Provider>
   );
