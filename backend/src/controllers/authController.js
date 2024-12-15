@@ -38,7 +38,7 @@ export const signup = async (req, res, next) => {
     res.status(201).json({
       message: "User signed in successfully",
       success: true,
-      user: savedUser.email,
+      user: email,
     });
 
     next();
@@ -77,7 +77,7 @@ export const login = async (req, res, next) => {
     res.status(201).json({
       message: "User logged in successfully",
       success: true,
-      user: user.email,
+      user: email,
     });
 
     next();
