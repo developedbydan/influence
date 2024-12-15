@@ -4,10 +4,12 @@ import { ToastContainer, toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 import "react-toastify/dist/ReactToastify.css";
 import { signup } from "../api/auth";
+import { useAuth } from "../contexts/AuthContext";
 
 const Signup = () => {
   const [cookies] = useCookies(["token"]);
   const navigate = useNavigate();
+  const { userRegister } = useAuth();
 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -33,9 +35,10 @@ const Signup = () => {
     try {
       const response = await signup(email, username, password);
 
-      const { success, message } = response.data;
+      const { success, message, user } = response.data;
       if (success) {
         handleSuccess(message);
+        userRegister(user);
         setTimeout(() => {
           navigate("/");
         }, 1000);

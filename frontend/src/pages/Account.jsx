@@ -4,15 +4,18 @@ import { fetchUserData, logout } from "../api/auth";
 import Layout from "../components/Layout";
 import { Link, useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import { useAuth } from "../contexts/AuthContext";
 
 const Account = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { userLogout } = useAuth();
 
   const handleSignOut = async () => {
     try {
       await logout();
+      userLogout();
       navigate("/login");
     } catch (error) {
       console.log(error);
