@@ -6,8 +6,8 @@ This is a MERN (MongoDB, Express, React, Node.js) stack application designed for
 
 - [Features](#features)
 - [Tech Stack](#tech-stack)
+- [Video](#video)
 - [Live](#live)
-- [Current Work](#current-work)
 
 ## Features
 
